@@ -171,7 +171,7 @@ var Calendar = React.createClass({
 
   componentDidUpdate(props, state) {
     if (this.props.onUpdate) {
-      this.props.onUpdate(state.date);
+      this.props.onUpdate(state, this.state);
     }
   },
 
