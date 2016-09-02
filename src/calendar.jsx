@@ -25,7 +25,8 @@ var Calendar = React.createClass({
     showYearDropdown: React.PropTypes.bool,
     startDate: React.PropTypes.object,
     todayButton: React.PropTypes.string,
-    utcOffset: React.PropTypes.number
+    utcOffset: React.PropTypes.number,
+    onUpdate: React.PropTypes.func
   },
 
   mixins: [require('react-onclickoutside')],
@@ -166,6 +167,12 @@ var Calendar = React.createClass({
         {this.props.todayButton}
       </div>
     )
+  },
+
+  componentDidUpdate(props, state) {
+    if (this.props.onUpdate) {
+      this.props.onUpdate(state.date);
+    }
   },
 
   render () {
